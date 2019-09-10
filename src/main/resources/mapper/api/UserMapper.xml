@@ -3,9 +3,7 @@
 <mapper namespace="com.aichong.mapper.api.UserMapper" >
   <resultMap id="BaseResultMap" type="com.aichong.model.User" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
     <result column="relation" property="relation" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="BIT" />
     <result column="age" property="age" jdbcType="INTEGER" />
     <result column="work" property="work" jdbcType="VARCHAR" />
     <result column="address" property="address" jdbcType="VARCHAR" />
@@ -18,7 +16,7 @@
     <result column="state" property="state" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, nick_name, relation, sex, age, work, address, phone, create_user, create_date, 
+    id, relation, age, work, address, phone, create_user, create_date,
     del_user, del_date, del_info, state
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
@@ -32,13 +30,12 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.aichong.model.User" >
-    insert into user (id, nick_name, relation, 
-      sex, age, work, address, 
+    insert into user (id, relation, age, work, address,
       phone, create_user, create_date, 
       del_user, del_date, del_info, 
       state)
-    values (#{id,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{relation,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=BIT}, #{age,jdbcType=INTEGER}, #{work,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{relation,jdbcType=VARCHAR},
+      #{age,jdbcType=INTEGER}, #{work,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
       #{phone,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
       #{delUser,jdbcType=VARCHAR}, #{delDate,jdbcType=TIMESTAMP}, #{delInfo,jdbcType=VARCHAR}, 
       #{state,jdbcType=TINYINT})
@@ -49,14 +46,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="nickName != null" >
-        nick_name,
-      </if>
       <if test="relation != null" >
         relation,
-      </if>
-      <if test="sex != null" >
-        sex,
       </if>
       <if test="age != null" >
         age,
@@ -93,14 +84,8 @@
       <if test="id != null" >
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="nickName != null" >
-        #{nickName,jdbcType=VARCHAR},
-      </if>
       <if test="relation != null" >
         #{relation,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null" >
-        #{sex,jdbcType=BIT},
       </if>
       <if test="age != null" >
         #{age,jdbcType=INTEGER},
@@ -137,14 +122,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.aichong.model.User" >
     update user
     <set >
-      <if test="nickName != null" >
-        nick_name = #{nickName,jdbcType=VARCHAR},
-      </if>
       <if test="relation != null" >
         relation = #{relation,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null" >
-        sex = #{sex,jdbcType=BIT},
       </if>
       <if test="age != null" >
         age = #{age,jdbcType=INTEGER},
@@ -181,9 +160,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aichong.model.User" >
     update user
-    set nick_name = #{nickName,jdbcType=VARCHAR},
-      relation = #{relation,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=BIT},
+    set relation = #{relation,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
       work = #{work,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},

@@ -11,11 +11,7 @@ public class User extends BaseBean {
 
     private String id;
 
-    private String nickName;
-
     private String relation;
-
-    private Boolean sex;
 
     private Integer age;
 
