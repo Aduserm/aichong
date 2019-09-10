@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aichong.mapper.api.PetMapper" >
+  <resultMap id="BaseResultMap" type="com.aichong.model.Pet" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="dangerous" property="dangerous" jdbcType="BIT" />
+    <result column="pet_user_id" property="petUserId" jdbcType="VARCHAR" />
+    <result column="is_user" property="isUser" jdbcType="INTEGER" />
+    <result column="vaccine" property="vaccine" jdbcType="BIT" />
+    <result column="vaccine_place" property="vaccinePlace" jdbcType="VARCHAR" />
+    <result column="vaccine_time" property="vaccineTime" jdbcType="TIMESTAMP" />
+    <result column="desc" property="desc" jdbcType="VARCHAR" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="del_user" property="delUser" jdbcType="VARCHAR" />
+    <result column="del_date" property="delDate" jdbcType="TIMESTAMP" />
+    <result column="del_info" property="delInfo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, size, dangerous, pet_user_id, is_user, vaccine, vaccine_place, vaccine_time, 
+    desc, create_user, create_date, del_user, del_date, del_info
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pet
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pet
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aichong.model.Pet" >
+    insert into pet (id, name, size, 
+      dangerous, pet_user_id, is_user, 
+      vaccine, vaccine_place, vaccine_time, 
+      desc, create_user, create_date, 
+      del_user, del_date, del_info
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, 
+      #{dangerous,jdbcType=BIT}, #{petUserId,jdbcType=VARCHAR}, #{isUser,jdbcType=INTEGER}, 
+      #{vaccine,jdbcType=BIT}, #{vaccinePlace,jdbcType=VARCHAR}, #{vaccineTime,jdbcType=TIMESTAMP}, 
+      #{desc,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{delUser,jdbcType=VARCHAR}, #{delDate,jdbcType=TIMESTAMP}, #{delInfo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aichong.model.Pet" >
+    insert into pet
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="dangerous != null" >
+        dangerous,
+      </if>
+      <if test="petUserId != null" >
+        pet_user_id,
+      </if>
+      <if test="isUser != null" >
+        is_user,
+      </if>
+      <if test="vaccine != null" >
+        vaccine,
+      </if>
+      <if test="vaccinePlace != null" >
+        vaccine_place,
+      </if>
+      <if test="vaccineTime != null" >
+        vaccine_time,
+      </if>
+      <if test="desc != null" >
+        desc,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="delUser != null" >
+        del_user,
+      </if>
+      <if test="delDate != null" >
+        del_date,
+      </if>
+      <if test="delInfo != null" >
+        del_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerous != null" >
+        #{dangerous,jdbcType=BIT},
+      </if>
+      <if test="petUserId != null" >
+        #{petUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="isUser != null" >
+        #{isUser,jdbcType=INTEGER},
+      </if>
+      <if test="vaccine != null" >
+        #{vaccine,jdbcType=BIT},
+      </if>
+      <if test="vaccinePlace != null" >
+        #{vaccinePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="vaccineTime != null" >
+        #{vaccineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="desc != null" >
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delUser != null" >
+        #{delUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delDate != null" >
+        #{delDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delInfo != null" >
+        #{delInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aichong.model.Pet" >
+    update pet
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="dangerous != null" >
+        dangerous = #{dangerous,jdbcType=BIT},
+      </if>
+      <if test="petUserId != null" >
+        pet_user_id = #{petUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="isUser != null" >
+        is_user = #{isUser,jdbcType=INTEGER},
+      </if>
+      <if test="vaccine != null" >
+        vaccine = #{vaccine,jdbcType=BIT},
+      </if>
+      <if test="vaccinePlace != null" >
+        vaccine_place = #{vaccinePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="vaccineTime != null" >
+        vaccine_time = #{vaccineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="desc != null" >
+        desc = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delUser != null" >
+        del_user = #{delUser,jdbcType=VARCHAR},
+      </if>
+      <if test="delDate != null" >
+        del_date = #{delDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delInfo != null" >
+        del_info = #{delInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aichong.model.Pet" >
+    update pet
+    set name = #{name,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      dangerous = #{dangerous,jdbcType=BIT},
+      pet_user_id = #{petUserId,jdbcType=VARCHAR},
+      is_user = #{isUser,jdbcType=INTEGER},
+      vaccine = #{vaccine,jdbcType=BIT},
+      vaccine_place = #{vaccinePlace,jdbcType=VARCHAR},
+      vaccine_time = #{vaccineTime,jdbcType=TIMESTAMP},
+      desc = #{desc,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      del_user = #{delUser,jdbcType=VARCHAR},
+      del_date = #{delDate,jdbcType=TIMESTAMP},
+      del_info = #{delInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
