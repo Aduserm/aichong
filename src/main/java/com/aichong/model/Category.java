@@ -7,7 +7,7 @@ import lombok.Data;
  * @author jingji.lin
  */
 @Data
-public class Category extends BaseBean {
+public class Category {
     private String id;
 
     private String name;

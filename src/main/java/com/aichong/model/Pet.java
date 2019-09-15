@@ -1,5 +1,6 @@
 package com.aichong.model;
 
+import com.aichong.bean.BaseBean;
 import java.util.Date;
 import lombok.Data;
 
@@ -7,7 +8,7 @@ import lombok.Data;
  * @author jingji.lin
  */
 @Data
-public class Pet extends BaseBean {
+public class Pet {
     private String id;
 
     private String name;

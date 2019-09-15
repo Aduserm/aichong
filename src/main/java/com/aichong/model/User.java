@@ -7,7 +7,7 @@ import lombok.Data;
  * @author jingji.lin
  */
 @Data
-public class User extends BaseBean {
+public class User {
 
     private String id;
 

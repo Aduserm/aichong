@@ -1,4 +1,4 @@
-package com.aichong.model;
+package com.aichong.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
