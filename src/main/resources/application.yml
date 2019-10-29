@@ -13,4 +13,7 @@ spring:
     username: root
     password: 123456789
     url: jdbc:mysql://101.132.115.227:3306/aichong?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-
+  security:
+    basic:
+      path: /swagger-ui.html
+      enabled: true
