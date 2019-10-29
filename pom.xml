@@ -83,11 +83,25 @@
       <artifactId>spring-boot-starter-log4j2</artifactId>
     </dependency>
 
+    <!--Swagger-ui配置-->
     <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>2.9.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>2.9.2</version>
+    </dependency>
+
+<dependency>
       <groupId>net.mingsoft</groupId>
       <artifactId>shiro-freemarker-tags</artifactId>
       <version>0.1</version>
     </dependency>
+
   </dependencies>
 
   <build>
