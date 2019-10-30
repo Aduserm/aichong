@@ -2,6 +2,9 @@ package com.aichong.config;
 
 import java.io.IOException;
 import java.util.Properties;
+
+import com.jagregory.shiro.freemarker.ShiroTags;
+import freemarker.template.TemplateException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactory;
@@ -16,7 +19,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
  * @Version: 1.0
  */
 @Configuration
-public class FreeMarkerConfig {
+public class FreemarkerConfig {
 
 
   @Bean
