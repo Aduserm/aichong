@@ -19,7 +19,11 @@ target/
 *.iml
 *.ipr
 *.cmd
+
 application-local.yml
+generatorConfig.xml
+
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
