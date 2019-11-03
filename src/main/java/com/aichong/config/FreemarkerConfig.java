@@ -1,5 +1,7 @@
 package com.aichong.config;
 
+import com.jagregory.shiro.freemarker.ShiroTags;
+import freemarker.template.TemplateException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -58,8 +60,9 @@ public class FreemarkerConfig {
 
 
   @Bean
-  public FreeMarkerConfigurer freemarkerConfig() throws IOException, TemplateException {
-     FreeMarkerConfigurationFactory factory = new FreeMarkerConfigurationFactory();
+  public FreeMarkerConfigurer freemarkerConfig()
+      throws IOException, TemplateException {
+    FreeMarkerConfigurationFactory factory = new FreeMarkerConfigurationFactory();
     factory.setTemplateLoaderPath("classpath:/templates/");
     factory.setDefaultEncoding("UTF-8");
     factory.setPreferFileSystemAccess(false);
